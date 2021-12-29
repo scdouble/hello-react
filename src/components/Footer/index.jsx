@@ -8,9 +8,9 @@ export default class Footer extends Component {
           <input type="checkbox" />
         </label>
         <span>
-          <span>已完成0</span> / 全部2
+          <span>Done 0</span> / All 2
         </span>
-        <button className="btn btn-danger">清除已完成任务</button>
+        <button className="btn btn-danger">Clear all done todos</button>
       </div>
     )
   }
