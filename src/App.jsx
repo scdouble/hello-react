@@ -19,11 +19,21 @@ export default class App extends Component {
 
     ]
   }
+
+  // Todoを追加する
+  addTodo = (todoObj) => {
+    // 元のTodoを取得
+    const { todos } = this.state
+    // todo を追加
+    const newTodos = [todoObj, ...todos]
+    this.setState({ todos: newTodos })
+  }
+
   render() {
     return (
       <div className="todo-container">
         <div className="todo-wrap">
-          <Header />
+          <Header addTodo={this.addTodo} />
           <List todos={this.state.todos} />
           <Footer />
         </div>
