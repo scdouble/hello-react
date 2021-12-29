@@ -8,12 +8,23 @@ import './App.css'
 
 // 殻のAppコンポーネントを作成してエクスポート
 export default class App extends Component {
+
+  //State を初期化
+  state = {
+    todos: [
+      { id: '001', name: 'eat', done: true },
+      { id: '002', name: 'sleep', done: true },
+      { id: '003', name: 'code', done: false },
+      { id: '004', name: 'shopping', done: false },
+
+    ]
+  }
   render() {
     return (
       <div className="todo-container">
         <div className="todo-wrap">
           <Header />
-          <List />
+          <List todos={this.state.todos} />
           <Footer />
         </div>
       </div>
