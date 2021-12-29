@@ -29,12 +29,25 @@ export default class App extends Component {
     this.setState({ todos: newTodos })
   }
 
+  // Itemコンポーネント用、TodoをUpdate用
+  updateTodo = (id, done) => {
+    // stateの中からTodoを取得
+    const { todos } = this.state
+    // データ加工
+    const newTodos = todos.map((todoObj) => {
+      // 引き数のIdと同じのTodoを見つけたら、属性Doneを修正して新しいTodoObjを作成する
+      if (todoObj.id === id) return { ...todoObj, done }
+      else return todoObj
+    })
+    this.setState({ todos: newTodos })
+  }
+
   render() {
     return (
       <div className="todo-container">
         <div className="todo-wrap">
           <Header addTodo={this.addTodo} />
-          <List todos={this.state.todos} />
+          <List todos={this.state.todos} updateTodo={this.updateTodo} />
           <Footer />
         </div>
       </div>
