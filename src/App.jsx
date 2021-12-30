@@ -42,12 +42,26 @@ export default class App extends Component {
     this.setState({ todos: newTodos })
   }
 
+  // Todoを削除
+  deleteTodo = (id) => {
+    // stateの中からTodoを取得
+    const { todos } = this.state
+    // 引き数のIdと同じIdのTodo以外のTodosを新しいTodoObjを作成する
+    const newTodos = todos.filter((todoObj) => {
+      return todoObj.id !== id
+    })
+
+    // Stateを更新
+    this.setState({ todos: newTodos })
+
+  }
+
   render() {
     return (
       <div className="todo-container">
         <div className="todo-wrap">
           <Header addTodo={this.addTodo} />
-          <List todos={this.state.todos} updateTodo={this.updateTodo} />
+          <List todos={this.state.todos} updateTodo={this.updateTodo} deleteTodo={this.deleteTodo} />
           <Footer />
         </div>
       </div>
