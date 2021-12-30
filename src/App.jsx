@@ -56,13 +56,37 @@ export default class App extends Component {
 
   }
 
+  // タスクをすべてチェックする
+  checkAllTodo = (done) => {
+    // stateの中からTodoを取得
+    const { todos } = this.state
+    const newTodos = todos.map((todoObj) => {
+      return { ...todoObj, done }
+    })
+    // Stateを更新
+    this.setState({ todos: newTodos })
+  }
+
+  // Doneのタスクを削除
+  clearAllDone = () => {
+    // stateの中からTodoを取得
+    const { todos } = this.state
+    // 引き数のIdと同じIdのTodo以外のTodosを新しいTodoObjを作成する
+    const newTodos = todos.filter((todoObj) => {
+      return todoObj.done == false
+    })
+    // Stateを更新
+    this.setState({ todos: newTodos })
+  }
+
+
   render() {
     return (
       <div className="todo-container">
         <div className="todo-wrap">
           <Header addTodo={this.addTodo} />
           <List todos={this.state.todos} updateTodo={this.updateTodo} deleteTodo={this.deleteTodo} />
-          <Footer />
+          <Footer todos={this.state.todos} checkAllTodo={this.checkAllTodo} clearAllDone={this.clearAllDone}/>
         </div>
       </div>
 
