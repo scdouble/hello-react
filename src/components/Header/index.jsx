@@ -1,9 +1,17 @@
 import React, { Component } from 'react'
 import { nanoid } from 'nanoid'
+import PropTypes from 'prop-types'
+
 import './index.css'
 
 export default class Header extends Component {
 
+  // 受け取るPropsの形を制限
+  static propType = {
+    addTodo: PropTypes.func.isRequired
+  }
+
+  // キーボードEventのコールバック
   handleKeyUp = (event) => {
     // eventからkeycodeとtargeを取得
     const { keyCode, target } = event
