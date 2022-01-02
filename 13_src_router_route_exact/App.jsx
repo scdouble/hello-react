@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Route, Switch,Redirect } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import About from './pages/About'// ルーターのコンポーネント
 import Home from './pages/Home'
 import Header from './components/Header' // 一般のコンポーネント
@@ -25,7 +25,7 @@ export default class App extends Component {
 
               {/* Reactの中でRouterを使ってComponentを切り替える Routeを編集する*/}
               <MyNavLink to="/about">About</MyNavLink>
-              <MyNavLink to="/home">Home</MyNavLink>
+              <MyNavLink to="/home/a">Home</MyNavLink>
             </div>
           </div>
           <div className="col-xs-6">
@@ -33,9 +33,8 @@ export default class App extends Component {
               <div className="panel-body">
                 {/* Routeを登録 */}
                 <Switch>
-                  <Route path="/about" component={About} />
-                  <Route path="/home" component={Home} />
-                  <Redirect to="/about"/>
+                  <Route exact path="/about" component={About} />
+                  <Route exact path="/home" component={Home} />
                 </Switch>
 
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Route, Switch,Redirect } from 'react-router-dom'
+import { Route, NavLink } from 'react-router-dom'
 import About from './pages/About'// ルーターのコンポーネント
 import Home from './pages/Home'
 import Header from './components/Header' // 一般のコンポーネント
@@ -32,12 +32,8 @@ export default class App extends Component {
             <div className="panel">
               <div className="panel-body">
                 {/* Routeを登録 */}
-                <Switch>
-                  <Route path="/about" component={About} />
-                  <Route path="/home" component={Home} />
-                  <Redirect to="/about"/>
-                </Switch>
-
+                <Route path="/about" component={About} />
+                <Route path="/home" component={Home} />
 
               </div>
             </div>
