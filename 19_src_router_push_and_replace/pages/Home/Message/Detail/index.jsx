@@ -12,12 +12,12 @@ export default class Detail extends Component {
   render() {
     console.log(this.props);
     // 1. paramsを受け取る
-    // const { id, title } = this.props.match.params
+    //const { id, title } = this.props.match.params
 
     // 2. search paramsを受け取る
     // const { search } = this.props.location
     // var searchParams = new URLSearchParams(search)
-    // // 検索パラメーターを列挙する
+    // 検索パラメーターを列挙する
     // for (let p of searchParams) {
     //   console.log(p);
     // }
